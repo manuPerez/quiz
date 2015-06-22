@@ -1,10 +1,10 @@
-## Repository quiz
+# Repository quiz
 
 Curso Miriadax: Desarrollo de servicios en la nube con HTML5, Javascript y node.js. Repositorio para proyecto quiz.
 
-### PRIMERA SUBIDA
+## PRIMERA SUBIDA
 
-# Paso 1: Instalar express-generator.
+### Paso 1: Instalar express-generator.
 
 - Crear el directorio mis_proyectos
 
@@ -18,7 +18,7 @@ npm install express-generator@4.9.0
 ____________________________________________________________________________________________________
 
 
-# Paso 2: Generar el proyecto 'quiz' con el comando express.
+### Paso 2: Generar el proyecto 'quiz' con el comando express.
 
 - Invocar el comando express con el path a partir del directorio de trabajo (mis_proyectos)
 
@@ -29,7 +29,7 @@ node_modules/express-generator/bin/express --ejs quiz
 ____________________________________________________________________________________________________
 
 
-# Paso 3: Guardar proyecto quiz en GIT.
+### Paso 3: Guardar proyecto quiz en GIT.
 
 - Creamos el proyecto y el repositorio:
 
@@ -52,7 +52,10 @@ git add .
 
 git commit -m "esqueleto express-generator"
 
-Paso 4: Publicar el proyecto en GITHUB.
+____________________________________________________________________________________________________
+
+
+### Paso 4: Publicar el proyecto en GITHUB.
 
 - Crear repositorio vacío 'quiz' en Github
 
@@ -66,9 +69,9 @@ git push origin master (si éste falla, añadir -f al comando push)
 
 
 
-### SEGUNDA SUBIDA
+## SEGUNDA SUBIDA
 
-# Paso 1: Modificar ficheros:
+### Paso 1: Modificar ficheros:
 
 /routes/index.js
 /views/index.ejs
@@ -76,7 +79,7 @@ git push origin master (si éste falla, añadir -f al comando push)
 ___________________________________________________________________________________________________
 
 
-# Paso 2: Quitar ruta /users.
+### Paso 2: Quitar ruta /users.
 
 - Borrar archivo /routes/users.js
 - Modificar archivo app.js. Quitar referencias a ruta users.
@@ -84,12 +87,12 @@ ________________________________________________________________________________
 ____________________________________________________________________________________________________
 
 
-# Paso 3: Añadir favicon
+### Paso 3: Añadir favicon
 
 ____________________________________________________________________________________________________
 
 
-# Paso 4: Probar aplicación antes de subir
+### Paso 4: Probar aplicación antes de subir
 
 - Crear dependencias
 
@@ -106,7 +109,7 @@ http://localhost:3000
 ____________________________________________________________________________________________________
 
 
-Paso 5: Guardar proyecto quiz en GIT.
+### Paso 5: Guardar proyecto quiz en GIT.
 
 - Añadimos todo el contenido en directorio al area de cambios y generamos versión.
 
@@ -115,15 +118,15 @@ git commit -a -m "Primera subida y favicon"
 ____________________________________________________________________________________________________
 
 
-Paso 6: Publicar el proyecto en GITHUB.
+### Paso 6: Publicar el proyecto en GITHUB.
 
 git push origin master (si éste falla, añadir -f al comando push)
 
 
 
-### TERCERA SUBIDA
+## TERCERA SUBIDA
 
-# Paso 1: Crear ficheros:
+### Paso 1: Crear ficheros:
 
 - Controlador: /controllers/quiz_controllers.js
 - Vistas: views/quizes/question.ejs
@@ -132,20 +135,19 @@ git push origin master (si éste falla, añadir -f al comando push)
 ____________________________________________________________________________________________________
 
 
-# Paso 2: Modificar ficheros:
+### Paso 2: Modificar fichero:
 
 - views/index.ejs: Añadir enlace a vista views/quizes/question.ejs
-- routes/index.js: Importar quiz_controller.js en routes/index.js
 
 ____________________________________________________________________________________________________
 
 
-# Paso 3: Probar aplicación antes de subir.
+### Paso 3: Probar aplicación antes de subir
 
 ____________________________________________________________________________________________________
 
 
-# Paso 4: Guardar proyecto quiz en GIT.
+### Paso 4: Guardar proyecto quiz en GIT.
 
 - Añadimos todo el contenido en directorio al area de cambios y generamos versión.
 
@@ -154,4 +156,46 @@ git commit -a -m "Primera pregunta"
 ____________________________________________________________________________________________________
 
 
-# Paso 5: Publicar el proyecto en GITHUB.
+### Paso 5: Publicar el proyecto en GITHUB.
+
+
+
+## CUARTA SUBIDA
+
+### Paso 1: Instalar paquete express-partials.
+
+npm install --save express-partials@0.3.0 (la opción --save hace que se guarde dependencia en el package.json)
+
+____________________________________________________________________________________________________
+
+
+### Paso 2: Importar e instalar middleware express-partials en app.js
+
+____________________________________________________________________________________________________
+
+
+### Paso 3: Añadir el marco único views/layout.ejs con las marcas HTML5
+
+____________________________________________________________________________________________________
+
+
+### Paso 4: Rehacer todas las vistas para renderizar en <section> sólo el código que cambia.
+
+____________________________________________________________________________________________________
+
+
+### Paso 5: Probar aplicación antes de subir
+
+____________________________________________________________________________________________________
+
+
+### Paso 6: Guardar poryecto quiz en GIT.
+
+- Añadimos todo el contenido en directorio al area de cambios y generamos versión.
+
+git commit -a -m "Vistas parciales y marco"
+
+____________________________________________________________________________________________________
+
+
+### Paso 7: Publicar el proyecto en GITHUB.
