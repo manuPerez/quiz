@@ -199,3 +199,33 @@ ________________________________________________________________________________
 
 
 ### Paso 7: Publicar el proyecto en GITHUB.
+
+
+
+## QUINTA SUBIDA
+
+### Paso 1: Definir 3 estilos CSS a utilizar.
+
+stylesheets/smartphone.css
+stylesheets/style.css
+stylesheets/wide.css
+
+____________________________________________________________________________________________________
+
+
+### Paso 2: Modificar el marco views/layout.ejs para que asocie cada estilo en la pantalla asociada.
+###         Para ello se utiliza media-queries
+
+____________________________________________________________________________________________________
+
+
+### Paso 3: Guardar poryecto quiz en GIT.
+
+- Añadimos todo el contenido en directorio al area de cambios y generamos versión.
+
+git commit -a -m "CSS´s adaptables a móviles y PC"
+
+____________________________________________________________________________________________________
+
+
+### Paso 4: Publicar el proyecto en GITHUB.
