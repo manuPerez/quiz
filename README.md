@@ -229,3 +229,43 @@ ________________________________________________________________________________
 
 
 ### Paso 4: Publicar el proyecto en GITHUB.
+
+
+
+## SEXTA SUBIDA
+
+### Paso 1: Modificar el marco views/layout.ejs.
+
+- Incluir la opción de menú 'Créditos'.
+- Incluir en el footer el enlace al proyecto github.
+
+____________________________________________________________________________________________________
+
+
+### Paso 2: Modificar el archivo index.js.
+
+- Incluir el routes para la nueva página author.ejs
+
+____________________________________________________________________________________________________
+
+
+### Paso 3: Incluir la imagen images/author.png
+
+____________________________________________________________________________________________________
+
+
+### Paso 4: Incluir nueva view views/quizes/author.ejs
+
+____________________________________________________________________________________________________
+
+
+### Paso 5: Guardar poryecto quiz en GIT.
+
+- Añadimos todo el contenido en directorio al area de cambios y generamos versión.
+
+git commit -a -m "Nueva página de créditos y nueva imagen"
+
+____________________________________________________________________________________________________
+
+
+### Paso 6: Publicar el proyecto en GITHUB.
