@@ -269,3 +269,176 @@ ________________________________________________________________________________
 
 
 ### Paso 6: Publicar el proyecto en GITHUB.
+
+
+
+
+
+## SEPTIMA SUBIDA
+
+### Paso 1: Crear el archivo Procfile.
+
+- Incluir la siguiente línea:
+
+web: node ./bin/www
+
+____________________________________________________________________________________________________
+
+
+### Paso 2: Modificar el archivo package.json.
+
+- Incluir:
+
+"engines": {
+    "node": "0.10.x",
+    "npm": "1.4.x"
+  },
+
+____________________________________________________________________________________________________
+
+
+### Paso 3: Guardar poryecto quiz en GIT.
+
+- Añadimos todo el contenido en directorio al area de cambios y generamos versión.
+
+git commit -a -m "Añadir Procfile y modificación de package.json"
+
+____________________________________________________________________________________________________
+
+
+### Paso 4: Publicar el proyecto en GITHUB.
+
+
+
+
+## OCTAVA SUBIDA
+
+### Paso 1: Instalar sequelize y sqlite3
+
+npm install --save sequelize@1.7.0
+
+npm install --save sqlite3@2.2.0
+
+____________________________________________________________________________________________________
+
+
+### Paso 2: Crear el modelo en el directorio models con las definiciones necesarias
+
+- Fichero models/quiz.js: definición de tabla Quiz de preguntas y respuestas.
+- Fichero models/models.js: crea e inicializa la tabla Quiz utilizando sequelize
+
+____________________________________________________________________________________________________
+
+
+### Paso 3: Modificar quiz_controller.js para que busque la pregunta en la BD
+
+____________________________________________________________________________________________________
+
+
+### Paso 4: Actualizar .gitignore para que no guarde fichero quiz.sqlite con DB
+
+____________________________________________________________________________________________________
+
+
+### Paso 5: Guardar versión (commit) con git
+
+git commit -a -m "sequelize.js y SQLite"
+
+____________________________________________________________________________________________________
+
+
+### Paso 6: Publicar el proyecto en GITHUB.
+
+
+
+
+## NOVENA SUBIDA
+
+### Paso 1: Añadir la base de datos Postgres como un add-on al despliegue en Heroku
+
+heroku addons:add heroku-postgresql:dev
+
+____________________________________________________________________________________________________
+
+
+### Paso 2: Añadir el URL de acceso la DB en la variable de entorno DATABASE_URL
+
+heroku pg:promote HEROKU_POSTGRESQL_GOLD_URL
+
+____________________________________________________________________________________________________
+
+
+### Paso 3: Pasar la dependencia de SQLite a “devDependencies”. Incluir parámetro a package.json
+
+"devDependencies": {
+	"sqlite3": "3.0.4"
+
+},
+
+____________________________________________________________________________________________________
+
+
+### Paso 4: Incluir dependencia de base de datos Postgres en package.json
+
+npm install --save pg@4.1.1
+
+__________________________________________________________________________________________________
+
+
+### Paso 5: Añadir fichero local .env con variables de entorno para SQLite
+
+DATABASE_URL=sqlite://:@:/
+DATABASE_STORAGE=quiz.sqlite
+
+____________________________________________________________________________________________________
+
+
+### Paso 6: Adaptar models/models.js para el entorno local y en Heroku
+
+____________________________________________________________________________________________________
+
+
+### Paso 7: Prueba de ejecución local con foreman start
+
+OJO! “foreman start” arranca el servidor en el puerto 5000, habrá que probar con URLs: “http://localhost:5000/
+
+____________________________________________________________________________________________________
+
+
+### Paso 8: Guardar versión en git y desplegar en heroku
+
+git commit -m “Despliegue DB en Heroku”
+
+git push heroku master -f
+
+
+
+
+## DECIMA SUBIDA
+
+### Paso 1: Adaptar MVC de pregunta y respuesta a colección de recursos
+
+• a: Cambiar en controlador quiz_controller.js: question por show y modificar answer
+• b1: Cambiar en index.js: GET /quizes/question por GET /quizes/:quizId
+• b1: Cambiar en index.js: GET /quizes/answer por GET /quizes/:quizId/answer
+• c: Adaptar vistas cambiando answer.ejs por show.ejs y modificando answer.ejs
+
+____________________________________________________________________________________________________
+
+
+### Paso 2: Añadir lista de preguntas: GET /quizes
+
+• a: Añadir al controlador quiz_controller.js la acción index asociada a la ruta /quizes
+• b: Añadir otra pregunta al inicializar la base de datos en models/models.js
+• c: Añadir la ruta /quizes (lista de preguntas) al enrutador routes/index.js
+• d: Crear nueva vista con lista de preguntas views/quizes/index.ejs
+
+____________________________________________________________________________________________________
+
+
+### Paso 3: Modificar layout.ejs para enlazar con la lista de preguntas
+
+____________________________________________________________________________________________________
+
+
+### Paso 4: Guardar versión (commit) git y subir a Heroku
