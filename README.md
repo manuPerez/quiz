@@ -356,7 +356,7 @@ ________________________________________________________________________________
 
 ### Paso 1: Añadir la base de datos Postgres como un add-on al despliegue en Heroku
 
-heroku addons:add heroku-postgresql:dev
+heroku addons:create heroku-postgresql:hobby-dev --app quiz-2015-manuperez
 
 ____________________________________________________________________________________________________
 
@@ -368,11 +368,10 @@ heroku pg:promote HEROKU_POSTGRESQL_GOLD_URL
 ____________________________________________________________________________________________________
 
 
-### Paso 3: Pasar la dependencia de SQLite a “devDependencies”. Incluir parámetro a package.json
+### Paso 3: Pasar la dependencia de SQLite a “devDependencies” (la que haya en "dependencies"). Incluir parámetro a package.json
 
 "devDependencies": {
-	"sqlite3": "3.0.4"
-
+	"sqlite3": "^3.0.8"
 },
 
 ____________________________________________________________________________________________________
@@ -385,15 +384,26 @@ npm install --save pg@4.1.1
 __________________________________________________________________________________________________
 
 
-### Paso 5: Añadir fichero local .env con variables de entorno para SQLite
+### Paso 5: Añadir fichero local .env con variables de entorno para Postgres.
 
-DATABASE_URL=sqlite://:@:/
+DATABASE_URL=postgres://pfghfxymiruzrg:w1k2TUpTLtCBFAMIFPtbrOsN-o@ec2-54-227-249-165.compute-1.amazonaws.com:5432/d9fpg0girk4uil
 DATABASE_STORAGE=quiz.sqlite
 
 ____________________________________________________________________________________________________
 
 
-### Paso 6: Adaptar models/models.js para el entorno local y en Heroku
+### Paso 6: Adaptar models/models.js para el entorno local (SQLite) y en Heroku (Postgres)
+
+// SQLite:
+//var DATABASE_URL = 'sqlite://:@:/';
+//var DATABASE_STORAGE='quiz.sqlite';
+
+//var url = DATABASE_URL.match(/(.*)\:\/\/(.*?)\:(.*)@(.*)\:(.*)\/(.*)/);
+//var storage = DATABASE_STORAGE;
+
+// Postgres:
+var url = process.env.DATABASE_URL.match(/(.*)\:\/\/(.*?)\:(.*)@(.*)\:(.*)\/(.*)/);
+var storage = process.env.DATABASE_STORAGE;
 
 ____________________________________________________________________________________________________
 
@@ -407,6 +417,7 @@ ________________________________________________________________________________
 
 ### Paso 8: Guardar versión en git y desplegar en heroku
 
+git add .
 git commit -m “Despliegue DB en Heroku”
 
 git push heroku master -f
