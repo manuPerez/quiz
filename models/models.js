@@ -1,10 +1,8 @@
 var path = require('path');
-console.log('entra');
 
 // SQLite:
 //var DATABASE_URL = 'sqlite://:@:/';
 //var DATABASE_STORAGE='quiz.sqlite';
-
 //var url = DATABASE_URL.match(/(.*)\:\/\/(.*?)\:(.*)@(.*)\:(.*)\/(.*)/);
 //var storage = DATABASE_STORAGE;
 

@@ -297,7 +297,7 @@ ________________________________________________________________________________
 ____________________________________________________________________________________________________
 
 
-### Paso 3: Guardar poryecto quiz en GIT.
+### Paso 3: Guardar proyecto quiz en GIT.
 
 - Añadimos todo el contenido en directorio al area de cambios y generamos versión.
 
