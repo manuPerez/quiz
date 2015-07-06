@@ -23,7 +23,7 @@ exports.index = function(req, res){
 		finalSearch = finalSearch.trim().replace(/\s/g,"%");	
 	}
 	console.log(finalSearch);
-	models.Quiz.findAll({where: ["pregunta like ?", finalSearch]}).then(
+	models.Quiz.findAll({where: ["pregunta like ?", finalSearch], order: "pregunta ASC"}).then(
 		function(quizes){
 			res.render('quizes/index', { quizes: quizes});
 		}
