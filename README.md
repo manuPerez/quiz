@@ -453,3 +453,135 @@ ________________________________________________________________________________
 
 
 ### Paso 4: Guardar versión (commit) git y subir a Heroku
+
+
+
+## UNDECIMA SUBIDA 
+##
+## 		- Crear preguntas
+##		- Validación de entradas
+##		- Editar preguntas
+##		- Borrar preguntas
+##		- Entrega ejercicio P2P obligatorio (índice temático)
+
+### Crear preguntas:
+###
+### Paso 1: Añadir formulario de creación de preguntas en GET /quizes/new
+
+• a: Añadir en controlador quiz_controller.js la acción new asociada a la ruta quizes/new
+• b: Añadir en routes/index.js la ruta GET /quizes/new
+• c: Añadir vista con formulario de creación de pregunta: views/quizes/new.ejs
+
+____________________________________________________________________________________________________
+
+
+### Paso 2: Añadir POST /quizes/create para añadir preguntas a BD
+
+• a: Añadir controlador create a quiz_controller.js
+• b: Añadir el filtro de POST /quizes/create en routes/index.js
+
+____________________________________________________________________________________________________
+
+
+### Paso 3: Cambiar config. bodyParser.urlencoded() en app.js
+
+____________________________________________________________________________________________________
+
+
+### Paso 4: Añadir en vista index.ejs enlace a creación de preguntas
+
+____________________________________________________________________________________________________
+
+### Validación de entradas
+###
+### Paso 1: Definir validaciones en models/quiz.js 
+
+____________________________________________________________________________________________________
+
+
+### Paso 2: Validar entradas con función validate() en la acción create de quizController.js
+
+____________________________________________________________________________________________________
+
+### Paso 3: Añadir presentación de errores en vista layout.ejs
+
+____________________________________________________________________________________________________
+
+### Paso 4: Aplicar color rojo a mensajes de error en style.css
+
+____________________________________________________________________________________________________
+
+
+### Paso 5: Parámetro con errores vacíos ([]) en res. render(...) en todos los controladores
+
+• a: Todos los controladores de quizController.js salvo create
+• b: Filtro de página home en routes/index
+• c: En res.render(...) de middlewares de error en app.js
+
+____________________________________________________________________________________________________
+
+### Editar preguntas
+###
+### Paso 1: Añadir formulario de editar preguntas en GET /quizes/:quizId/edit
+
+• a: Añadir acción edit en quizController.js
+• b: Añadir en routes/index.js la ruta GET /quizes/:quizId/edit
+• c: Añadir vista con formulario de editar pregunta: views/quizes/edit.ejs
+
+____________________________________________________________________________________________________
+
+
+### Paso 2: Añadir MW methodoverride() para transformar POST en PUT
+
+____________________________________________________________________________________________________
+
+
+### Paso 3: Añadir PUT /quizes/:quizId para modificar preguntas
+
+• a: Añadir acción update en quizController.js asociado a /quizes/:quizId
+• b: Añadir ruta POST /quizes/update en routes/index.js
+
+____________________________________________________________________________________________________
+
+
+### Paso 4: Añadir en vista index.ejs enlaces de edición a cada pregunta
+
+____________________________________________________________________________________________________
+
+### Borrar preguntas
+###
+### Paso 1: Añadir en vista index.ejs botones para borrar cada una de las preguntas
+
+____________________________________________________________________________________________________
+
+
+### Paso 2: Añadir ruta DELETE /quizes/:quizId para borrar preguntas
+
+• a: Añadir acción destroy en quizController.js
+• b: Añadir filtro DELETE /quizes/:quizId(\\d+) en routes/index.js
+
+____________________________________________________________________________________________________
+
+### Entrega ejercicio P2P obligatorio (índice temático)
+###
+### Paso 1: Añadir en vista _form.ejs el elemento '<selec>'
+
+____________________________________________________________________________________________________
+
+
+### Paso 2: Añadir en quiz.js el nuevo campo 'tematica'
+
+____________________________________________________________________________________________________
+
+
+### Paso 3: Añadir en todos los 'res.render(...) el nuevo campo 'tematica' en el archivo quiz_controller.js
+
+____________________________________________________________________________________________________
+
+
+### Paso 4: Guardar versión en git y desplegar en heroku
+
+git add .
+git commit -m “Crear, editar, borrar, validación de entradas y Entrega ejercicio P2P obligatorio”
+
+git push heroku master -f
