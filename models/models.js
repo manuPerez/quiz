@@ -1,14 +1,14 @@
 var path = require('path');
 
 // SQLite:
-var DATABASE_URL = 'sqlite://:@:/';
-var DATABASE_STORAGE='quiz.sqlite';
-var url = DATABASE_URL.match(/(.*)\:\/\/(.*?)\:(.*)@(.*)\:(.*)\/(.*)/);
-var storage = DATABASE_STORAGE;
+//var DATABASE_URL = 'sqlite://:@:/';
+//var DATABASE_STORAGE='quiz.sqlite';
+//var url = DATABASE_URL.match(/(.*)\:\/\/(.*?)\:(.*)@(.*)\:(.*)\/(.*)/);
+//var storage = DATABASE_STORAGE;
 
 // Postgres:
-//var url = process.env.DATABASE_URL.match(/(.*)\:\/\/(.*?)\:(.*)@(.*)\:(.*)\/(.*)/);
-//var storage = process.env.DATABASE_STORAGE;
+var url = process.env.DATABASE_URL.match(/(.*)\:\/\/(.*?)\:(.*)@(.*)\:(.*)\/(.*)/);
+var storage = process.env.DATABASE_STORAGE;
 
 var DB_name = (url[6]||null);
 var user = (url[2]||null);
