@@ -1,12 +1,126 @@
 *						{ margin: 0; padding: 0; }
-body 					{ font: 16px Georgia, Serif; }
+body 					{ font: 16px Arial; }
 
 #page-wrap				{ margin: 2% auto; color: white; }
 #page-wrap > .main 		{ border: 1px solid #999; padding: 1%; margin-bottom: 1px; color: black; }
 
-section > div 			{ padding: 20px; }
 header, nav, section	{ background: #eee; text-align: center; }
 footer					{ background: #eee; text-align: center; }
-nav, span 				{ margin: 0px 10px 0px 0px; }
+h2						{font: 24px Arial;}
+h3						{font: 20px Arial;}
 
 #ErrorMsgs				{ color: #f61; font-size: smaler}
+
+.myNav{
+	position: relative;
+	left: 20%; 
+	text-align: center;
+	width: 110px;
+}
+
+.myFooter{
+	position: relative; 
+	text-align: center;
+}
+
+.myDivContenedor{
+	position: relative;
+  	top: 20%;
+  	left: 20%; 
+  	border-radius: 25px; 
+  	padding: 20px; 
+  	width: 60%; 
+  	height: 50%;
+}
+
+.myDivPregunta{
+	position: relative;
+  	top: 20%;
+	border-radius: 15px; 
+	border: 2px solid #8AAADD; 
+	padding: 5px 0px 10px 0px; 
+	width: 98%; 
+	height: 10%;
+}
+
+.myInputLupa{
+	position: relative;
+  	top: .5em;
+}
+
+.myPreguntas{
+	position: relative; 
+	padding: 5px; 
+	width: 95%; 
+	height: 100%;
+	text-align: left;
+}
+
+.myPreg{  
+	position: relative; 
+	padding: 5px; 
+	width: 95%;
+}
+
+.preg{
+	position: relative;
+	width: 150px;
+	height: 25px;
+}
+
+.edit{
+	position: relative;
+	left: 160px;
+	top: -33px;
+	width: 25px;
+	height: 25px;
+}
+
+.delete{
+	position: relative;
+	left: 188px;
+	top: -58px;
+	width: 25px;
+	height: 25px;
+}
+
+.cabecera		{font: 20px Arial; background: #ccc;}
+.cuerpo			{font: 16px Arial;}
+.buscar			{font: 12px Arial; text-align: right;}
+.pregunta		{width: 40%; font: 12px Arial; text-align: left;}
+
+.botonEdit{
+	position: relative; 
+	top: .5em; 
+	background: url('../images/edit.jpg'); 
+	background-size: 25px auto; 
+	border: none; 
+	height: 25px; 
+	width: 25px;
+}
+.botonBorrar{
+	position: relative; 
+	top: .5em; 
+	background: url('../images/borrar.jpg'); 
+	background-size: 25px auto; 
+	border: none; 
+	height: 25px; 
+	width: 25px;
+}
+
+.botonCancelar{
+	background: url('../images/cancelar.jpg'); 
+    background-size: 100px auto; 
+    border: none; 
+    height: 25px; 
+    width: 100px; 
+    margin: 4px 0px 0px 0px;
+}
+
+.crearPregunta{
+	background: url('../images/new.jpg'); 
+	background-size: 25px auto; 
+	border: none; 
+	height: 25px; 
+	width: 25px;
+}

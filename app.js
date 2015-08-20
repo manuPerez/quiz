@@ -6,6 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var partials = require('express-partials');
 var methodOverride = require('method-override');
+var session = require('express-session');
 
 var routes = require('./routes/index');
 
@@ -22,9 +23,44 @@ app.use(partials());
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
-app.use(cookieParser());
+app.use(cookieParser('Quiz 2015'));
+app.use(session());
 app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')));
+
+// Helpers dinámicos
+app.use(function(req, res, next){
+    //guardar path en session.redir para despues de login
+    if (!req.path.match(/\/login|\/logout/)){
+        req.session.redir = req.path;
+    }
+
+    //hacer visible req.session en las vistas
+    res.locals.session = req.session;
+    next();
+});
+
+
+app.use(function(req, res, next) {
+
+    var now = new Date();
+    var stamp = req.session.time ? new Date(req.session.time) : new Date();
+    
+    if (!req.path.match(/\/login|\/logout/)) {
+        if ((now.getMinutes() - 2) > stamp.getMinutes()) {
+            var errors = req.session.errors || 'Sesión caducada ...';
+            req.session.errors = {};
+            req.session.time = new Date();
+            res.render('sessions/new', { errors: errors });
+        } else {
+            req.session.time = new Date();
+            next(); 
+        }
+    } else {
+        next(); 
+    }
+
+});
 
 app.use('/', routes);
 
@@ -60,6 +96,5 @@ app.use(function(err, req, res, next) {
         errors: []
     });
 });
-
 
 module.exports = app;

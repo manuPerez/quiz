@@ -1,3 +1,5 @@
+certs
+commands_to_generate_keys.txt
 node_modules
 .DS_Store
 npm-debug.log

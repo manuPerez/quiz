@@ -464,9 +464,19 @@ git push heroku master -f
 
 
 
-### DUODECIMA SUBIDA
+### DUODECIMA SUBIDA 
+###
+###		- Crear Comentarios
+###		- Autenticación y sesión
+###		- Autorización
+###		- Moderación de Comentarios
+###     - HTTPS - HTTP Seguro
+###     - Cambios en estilos
+###		- Entrega ejercicio P2P obligatorio
 
-#### Paso 1: Añadir nueva tabla en la BD para guardar los comentarios a las preguntas
+#### Crear Comentarios:
+####
+#### Paso 1: Añadir nueva tabla en la DB para guardar los comentarios a las preguntas
 
 • a: Añadir definición de la tabla de comentarios models/comment.js
 • b: Importar tabla en models/models.js y definir la relación entre las tablas quiz y comment
@@ -474,21 +484,107 @@ ________________________________________________________________________________
 
 #### Paso 2: Añadir formulario de crear comentarios: GET /quizes/:quizId/comments/new
 
-• a: Añadir al controlador comments_controller.js la acción new asociada a la ruta /quizes/:quizId/comment/new
+• a: Añadir en comments_controller.js acción new asociada a ruta /quizes/:quizId/comment/new
 • b: Añadir en routes/index.js ruta GET /quizes/:quizId/comments/new
 • c: Añadir vista con formulario de crear comentario: views/comments/new.ejs
 ____________________________________________________________________________________________________
 
 #### Paso 3: Añadir POST /quizes/:quizId/comments para introducir nuevos comentarios en DB
 
-• a: Añadir al controlador comments_controller.js la acción create
+• a: Añadir en comment_controller.js acción create
 • b: Añadir en routes/index.js ruta POST /quizes/:quizId/comments
 ____________________________________________________________________________________________________
 
-#### Paso 4: Modificar vista quizes/show para incluir comentarios y botón de crar comentario
+#### Paso 4: Modificar vista quizes/show para incluir comentarios y botón de crear comentario
 
 • a: Modificar autoload del controlador quiz_controller.js para que cargue también los comentarios del quiz
-• b: Modificar vista views/quizes/show para incluir comentarios y botón de crearlos
+• b: Modificar vista views/quizes/show para incluir comentarios y botón de crearlos 
 ____________________________________________________________________________________________________
 
-#### Paso 5: Guardar versión (commit) git y subir a Heroku
+#### Autenticación y sesión
+####
+#### Paso 1: Importar, instalar y configurar middleware de gestión de sesiones
+
+• a: Importar en instalar middleware express-session en app.js y en package.json
+• b: Hacer visible la sesión en las vistas quizes y comment
+• c: Guardar path de re-dirección después de login 
+____________________________________________________________________________________________________
+
+#### Paso 2: Añadir 3 rutas de gestión de sesión en routes/index.js
+
+• Cargas formulario de login GET /login
+• Crear sesión: POST /login
+• Destruir sesión: GET /logout
+____________________________________________________________________________________________________
+
+#### Paso 3: Crear controlador de sesión controllers/session_controller.js
+
+• a: Añadir acción new para la ruta GET /login para cargar formulario de login
+• b: Añadir acción create para la ruta POST /login para crear la sesión de usuario
+• c: Añadir acción destroy para la ruta GET /logout para destruir la sesión
+____________________________________________________________________________________________________
+
+#### Paso 4: Crear controlador de usuarios: controllers/user_controller.js
+____________________________________________________________________________________________________
+
+#### Paso 5: Añadir botón login/logout en views/layout.ejs
+____________________________________________________________________________________________________
+
+#### Paso 6: Añadir vista de login views/sessions/new.ejs
+____________________________________________________________________________________________________
+
+#### Autorización
+####
+#### Paso 1: Crear un middleware de autorización en controllers/session_controller.js
+____________________________________________________________________________________________________
+
+#### Paso 2: Añadir MW de autorización en routes/index.js a rutas de creación, edición y borrado
+____________________________________________________________________________________________________
+
+#### Paso 3: Modificar vista views/quizes/index.ejs para quitar botones a usuarios anónimos
+____________________________________________________________________________________________________
+
+#### Moderación de comentarios
+####
+#### Paso 1: Añadir campo de publicado en tabla models/comment.js de la DB
+____________________________________________________________________________________________________
+
+#### Paso 2: Añadir autoload y acción publish en controllers/comment_controller.js
+
+• a: Añadir método de Autoload de comentarios en controlador
+• b: Añadir acción publish para publicar comentarios una vez autorizados
+____________________________________________________________________________________________________
+
+#### Paso 3: Instalar middleware de autoload y nueva ruta en routes/index.js
+
+• a: Instalar middleware de Autoload de comentarios en routes/indes.js
+• b: Añadir en routes/index.js ruta GET /quizes/:quizId/comments/:id/publish para autorizar comentario
+____________________________________________________________________________________________________
+
+#### Paso 4: Modificar views/quizes/:quizId/show para mostrar solo comentarios autorizados
+____________________________________________________________________________________________________
+
+#### HTTPS - HTTP Seguro
+####
+#### Paso 1: Añadir acceso por HTTPS al arrancar el servidor de node.js en bin/www
+____________________________________________________________________________________________________
+
+#### Paso 2: Crear e instalar claves y certificados digitales para acceso seguro HTTPS
+
+• a: Crear script de creación e instalación de certificados digitales
+• b: Crear e instalar certificados
+____________________________________________________________________________________________________
+
+#### Cambios en estilos
+____________________________________________________________________________________________________
+
+#### Entrega ejercicio P2P obligatorio
+####
+#### Añadir estadísticas
+
+#### Guardar versión en git y desplegar en heroku
+
+git add .
+git commit -m “Crear Comentarios, Autenticación y sesión, Autorización, Moderación de Comentarios, HTTPS - HTTP Seguro, Cambios en estilos, Entrega ejercicio P2P obligatorio”
+
+git push heroku master -f

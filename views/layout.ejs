@@ -16,12 +16,20 @@
   <body>
   	<div id="page-wrap">
   		<header class="main" id="h1">
+        <%if(!session.user){%>
+          <span class="right"><a href="/login">Login</a></span>
+        <%}else{%>
+          <span class="right"><%=session.user.username%> <a href="/logout">Logout</a></span>
+        <%}%>
   			<h2>Quiz<span>:el juego de las preguntas</span></h2>
   		</header>
   		<nav class="main" id="n1" role="navigation">
-  			<span><a href="/">Inicio</a></span>
-  			<span><a href="/quizes">Preguntas</a></span>
-        <span><a href="/quizes/author">Creditos</a></span>
+  			<div class="myNav">
+          <span><a href="/">inicio</a></span>
+  			  <span><a href="/quizes">preguntas</a></span>
+          <span><a href="/quizes/statistics">estadísticas</a></span>
+          <span><a href="/quizes/author">créditos</a></span>
+        </div>
   		</nav>
   		<section class="main" id="s1">
         <% if(errors.length){ %>
@@ -35,8 +43,10 @@
         <div><%- body %></div>
       </section>
   		<footer class="main" id="f1">
-  			<p><a href="http://es.wikipedia.org/wiki/Quiz">¿Qué es Quiz?</a></p>
-        <p><a href="https://github.com/manuPerez/quiz">Ver Proyecto en Github</a></p>
+        <div class="myFooter">
+  			   <a href="http://es.wikipedia.org/wiki/Quiz"><img src="/images/wikipedia.png"></a>
+           <a href="https://github.com/manuPerez/quiz"><img src="/images/github.png"></a>
+        </div>
   		</footer>
   	</div>
   </body>
